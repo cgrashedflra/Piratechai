@@ -16,6 +16,11 @@ export const ClassesPage: React.FC = () => {
   const filteredClasses = useMemo(() => {
     return classes
       .filter((cls) => {
+        // Requirement #28: A hidden/rejected gig must not appear in public discovery
+        if (cls.moderationStatus && cls.moderationStatus !== 'approved') {
+          return false;
+        }
+
         if (searchTerm.trim()) {
           const q = searchTerm.toLowerCase();
           const matchTitle = cls.title.toLowerCase().includes(q);

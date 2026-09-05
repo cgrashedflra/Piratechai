@@ -116,16 +116,29 @@ export const Navbar: React.FC = () => {
                   </div>
 
                   <div className="py-1">
-                    <button
-                      onClick={() => {
-                        setUserDropdownOpen(false);
-                        navigate(user.role === 'educator' ? '/dashboard/educator' : '/dashboard/student');
-                      }}
-                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 flex items-center gap-2"
-                    >
-                      <GraduationCap className="w-4 h-4 text-slate-400" />
-                      {user.role === 'educator' ? 'Educator Dashboard' : 'Student Dashboard'}
-                    </button>
+                    {user.role === 'admin' ? (
+                      <button
+                        onClick={() => {
+                          setUserDropdownOpen(false);
+                          navigate('/admin');
+                        }}
+                        className="w-full text-left px-3.5 py-1.5 text-xs font-semibold text-indigo-600 hover:bg-indigo-50 flex items-center gap-2"
+                      >
+                        <ShieldCheck className="w-4 h-4 text-indigo-600" />
+                        Admin Console
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setUserDropdownOpen(false);
+                          navigate(user.role === 'educator' ? '/dashboard/educator' : '/dashboard/student');
+                        }}
+                        className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 flex items-center gap-2"
+                      >
+                        <GraduationCap className="w-4 h-4 text-slate-400" />
+                        {user.role === 'educator' ? 'Educator Dashboard' : 'Student Dashboard'}
+                      </button>
+                    )}
 
                     {user.role === 'educator' && (
                       <button
@@ -159,13 +172,13 @@ export const Navbar: React.FC = () => {
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">
                       Switch Role (Demo)
                     </p>
-                    <div className="flex gap-1.5">
+                    <div className="grid grid-cols-3 gap-1">
                       <button
                         onClick={() => {
                           login('student');
                           setUserDropdownOpen(false);
                         }}
-                        className={`flex-1 text-[11px] py-1 px-2 rounded font-medium transition cursor-pointer ${
+                        className={`text-[10px] py-1 px-1.5 rounded font-semibold transition cursor-pointer text-center ${
                           user.role === 'student'
                             ? 'bg-indigo-600 text-white'
                             : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
@@ -178,13 +191,26 @@ export const Navbar: React.FC = () => {
                           login('educator');
                           setUserDropdownOpen(false);
                         }}
-                        className={`flex-1 text-[11px] py-1 px-2 rounded font-medium transition cursor-pointer ${
+                        className={`text-[10px] py-1 px-1.5 rounded font-semibold transition cursor-pointer text-center ${
                           user.role === 'educator'
                             ? 'bg-indigo-600 text-white'
                             : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
                         }`}
                       >
                         Educator
+                      </button>
+                      <button
+                        onClick={() => {
+                          login('admin');
+                          setUserDropdownOpen(false);
+                        }}
+                        className={`text-[10px] py-1 px-1.5 rounded font-semibold transition cursor-pointer text-center ${
+                          user.role === 'admin'
+                            ? 'bg-indigo-600 text-white'
+                            : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
+                        }`}
+                      >
+                        Admin
                       </button>
                     </div>
                   </div>

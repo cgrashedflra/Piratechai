@@ -7,6 +7,14 @@ export const initialEducators: Educator[] = [
     professionalName: 'Ahsan Rahman (Concept Physics)',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
     verified: true,
+    verificationStatus: 'approved',
+    documents: {
+      idType: 'National Smart NID',
+      idNumber: 'NID-8829-4401-2291',
+      certificateName: 'BSc in EEE — BUET (Convocation 2020)',
+      backgroundChecked: true,
+      submittedAt: 'Aug 10, 2026'
+    },
     rating: 4.9,
     reviewCount: 86,
     location: 'Dhaka (Dhanmondi / Online)',
@@ -658,5 +666,131 @@ export const initialEducators: Educator[] = [
         text: 'Nusrat madam made modifiers and right forms of verbs foolproof. Scored 94 in my pre-tests!'
       }
     ]
+  },
+  {
+    id: 'tanvir-hassan',
+    name: 'Tanvir Hassan',
+    professionalName: 'Tanvir Hassan (BUET EEE \'23)',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+    verified: false,
+    verificationStatus: 'pending',
+    documents: {
+      idType: 'National Smart NID',
+      idNumber: 'NID-9921-1102-8820',
+      certificateName: 'BUET Bachelor of Science in EEE Certificate & Academic Transcript',
+      backgroundChecked: true,
+      submittedAt: 'Yesterday · 2:30 PM'
+    },
+    rating: 5.0,
+    reviewCount: 0,
+    location: 'Palashi, Dhaka',
+    experience: 3,
+    subjects: ['Physics', 'Mathematics', 'HSC Preparation', 'Electrodynamics'],
+    qualifications: ['BSc in EEE, BUET (Graduated 2023)', 'Former Physics Olympiad National Finalist'],
+    teachingFormats: ['1-on-1', 'Batch classes'],
+    priceMin: 500,
+    priceMax: 900,
+    availableThisWeek: true,
+    description: 'Recent BUET EEE graduate offering structured problem solving for HSC board exams and engineering admission candidates.',
+    bio: 'Fresh perspective on university admission test patterns. I focus on vector-based calculus shortcuts, electromagnetic theory visualization, and building exam endurance.',
+    teachingPhilosophy: 'Targeted drill practice with immediate error post-mortem analysis.',
+    whoITeach: 'HSC 1st and 2nd year students and BUET aspirants.',
+    timeline: [
+      {
+        period: '2023 — Present',
+        role: 'Independent Physics Coach',
+        institution: 'Dhaka',
+        description: 'Taught 40+ students in 1-on-1 personalized tracks.'
+      }
+    ],
+    portfolio: [
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80'
+    ],
+    schedule: [
+      { day: 'Monday', status: 'Available', timeSlots: ['4:00 PM', '6:00 PM'] },
+      { day: 'Wednesday', status: 'Available', timeSlots: ['4:00 PM', '7:00 PM'] },
+      { day: 'Friday', status: 'Available', timeSlots: ['10:00 AM', '3:00 PM'] }
+    ],
+    reviews: []
+  },
+  {
+    id: 'sharmin-akter',
+    name: 'Sharmin Akter',
+    professionalName: 'Sharmin Akter (IELTS 8.5 Master Coach)',
+    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    verified: false,
+    verificationStatus: 'pending',
+    documents: {
+      idType: 'International Passport',
+      idNumber: 'P-BD-9920194',
+      certificateName: 'British Council Certified IELTS Instructor Accreditation & Band 8.5 TRF',
+      backgroundChecked: true,
+      submittedAt: '2 days ago'
+    },
+    rating: 4.8,
+    reviewCount: 4,
+    location: 'Banani, Dhaka',
+    experience: 5,
+    subjects: ['IELTS', 'English', 'Spoken English'],
+    qualifications: ['MA in Applied Linguistics (University of Dhaka)', 'British Council Certified Trainer', 'IELTS Band 8.5'],
+    teachingFormats: ['1-on-1', 'Batch classes'],
+    priceMin: 700,
+    priceMax: 1400,
+    availableThisWeek: true,
+    description: 'Certified IELTS mentor with specialized accent reduction and Task 2 writing band 7+ frameworks.',
+    bio: 'Dedicated to helping test-takers break the 6.5 plateau in Speaking and Writing through lexical resource expansion and structured argument architecture.',
+    teachingPhilosophy: 'Rapid feedback loops with simulated 1-on-1 British Council examiner conditions.',
+    whoITeach: 'Higher education applicants, immigration candidates, and corporate professionals.',
+    timeline: [
+      {
+        period: '2021 — Present',
+        role: 'Lead IELTS Trainer',
+        institution: 'Global Study Path',
+        description: 'Coached over 200 candidates to overall band 7.5+.'
+      }
+    ],
+    portfolio: [
+      'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80'
+    ],
+    schedule: [
+      { day: 'Tuesday', status: 'Available', timeSlots: ['6:00 PM', '8:00 PM'] },
+      { day: 'Thursday', status: 'Available', timeSlots: ['6:00 PM', '8:00 PM'] },
+      { day: 'Saturday', status: 'Available', timeSlots: ['11:00 AM', '4:00 PM'] }
+    ],
+    reviews: []
+  },
+  {
+    id: 'tutor-farhan',
+    name: 'Farhan Tariq',
+    professionalName: 'Farhan Tariq (HSC Math Hacks)',
+    avatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80',
+    verified: false,
+    verificationStatus: 'suspended',
+    documents: {
+      idType: 'National Smart NID',
+      idNumber: 'NID-7711-2299-3388',
+      certificateName: 'BSc in Mathematics (DU)',
+      backgroundChecked: false,
+      submittedAt: 'May 10, 2026',
+      rejectionReason: 'Suspended due to report #rep-101 for off-platform payment solicitation.'
+    },
+    rating: 3.8,
+    reviewCount: 12,
+    location: 'Uttara, Dhaka',
+    experience: 4,
+    subjects: ['Mathematics', 'Calculus', 'Algebra'],
+    qualifications: ['BSc in Mathematics (DU)'],
+    teachingFormats: ['1-on-1'],
+    priceMin: 450,
+    priceMax: 800,
+    availableThisWeek: false,
+    description: 'HSC Higher Mathematics formula tricks and coordinate geometry.',
+    bio: 'Formula shortcuts and calculator techniques for fast MCQ solving.',
+    teachingPhilosophy: 'Memorize patterns to gain test speed.',
+    whoITeach: 'College students.',
+    timeline: [],
+    portfolio: [],
+    schedule: [],
+    reviews: []
   }
 ];

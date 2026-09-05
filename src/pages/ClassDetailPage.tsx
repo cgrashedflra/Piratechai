@@ -3,6 +3,7 @@ import { useApp } from '../context/AppContext';
 import { VerifiedBadge } from '../components/VerifiedBadge';
 import { RatingStars } from '../components/RatingStars';
 import { EnrollmentModal } from '../components/EnrollmentModal';
+import { ReportModal } from '../components/ReportModal';
 import {
   Calendar,
   Clock,
@@ -14,7 +15,8 @@ import {
   ArrowLeft,
   Share2,
   ShieldCheck,
-  Award
+  Award,
+  Flag
 } from 'lucide-react';
 
 interface ClassDetailPageProps {
@@ -24,6 +26,7 @@ interface ClassDetailPageProps {
 export const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classId }) => {
   const { classes, educators, navigate } = useApp();
   const [isEnrollOpen, setIsEnrollOpen] = useState(false);
+  const [isReportOpen, setIsReportOpen] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
   const classItem = useMemo(() => {
@@ -82,13 +85,23 @@ export const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classId }) => 
             <span className="font-semibold text-slate-900 truncate">{classItem.title}</span>
           </nav>
 
-          <button
-            onClick={handleShare}
-            className="text-xs text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-300 bg-white hover:bg-slate-50 transition cursor-pointer"
-          >
-            <Share2 className="w-3.5 h-3.5" />
-            <span>{copiedLink ? 'Link Copied!' : 'Share Class'}</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsReportOpen(true)}
+              id="report-class-btn"
+              className="text-xs text-rose-600 hover:text-rose-700 flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-rose-200 bg-rose-50/40 hover:bg-rose-50 transition cursor-pointer"
+            >
+              <Flag className="w-3.5 h-3.5" />
+              <span>Report</span>
+            </button>
+            <button
+              onClick={handleShare}
+              className="text-xs text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-300 bg-white hover:bg-slate-50 transition cursor-pointer"
+            >
+              <Share2 className="w-3.5 h-3.5" />
+              <span>{copiedLink ? 'Link Copied!' : 'Share Class'}</span>
+            </button>
+          </div>
         </div>
 
         {/* 33. HERO SECTION */}
@@ -335,6 +348,15 @@ export const ClassDetailPage: React.FC<ClassDetailPageProps> = ({ classId }) => 
         classItem={classItem}
         isOpen={isEnrollOpen}
         onClose={() => setIsEnrollOpen(false)}
+      />
+
+      {/* REPORT MODAL */}
+      <ReportModal
+        isOpen={isReportOpen}
+        onClose={() => setIsReportOpen(false)}
+        targetType="gig"
+        targetId={classItem.id}
+        targetName={classItem.title}
       />
     </div>
   );

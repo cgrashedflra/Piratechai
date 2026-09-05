@@ -327,9 +327,12 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {educators.slice(0, 6).map((educator) => (
-              <MentorCard key={educator.id} educator={educator} />
-            ))}
+            {educators
+              .filter((e) => e.verificationStatus !== 'suspended' && e.verificationStatus !== 'rejected')
+              .slice(0, 6)
+              .map((educator) => (
+                <MentorCard key={educator.id} educator={educator} />
+              ))}
           </div>
         </div>
       </section>
@@ -391,9 +394,12 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {classes.slice(0, 3).map((classItem) => (
-              <ClassCard key={classItem.id} classItem={classItem} />
-            ))}
+            {classes
+              .filter((c) => !c.moderationStatus || c.moderationStatus === 'approved')
+              .slice(0, 3)
+              .map((classItem) => (
+                <ClassCard key={classItem.id} classItem={classItem} />
+              ))}
           </div>
         </div>
       </section>

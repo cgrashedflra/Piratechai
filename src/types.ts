@@ -27,6 +27,16 @@ export interface Educator {
   professionalName: string;
   avatar: string;
   verified: boolean;
+  verificationStatus?: 'pending' | 'approved' | 'rejected' | 'suspended';
+  documents?: {
+    idType: string;
+    idNumber: string;
+    certificateName: string;
+    certificateUrl?: string;
+    backgroundChecked: boolean;
+    submittedAt: string;
+    rejectionReason?: string;
+  };
   rating: number;
   reviewCount: number;
   location: string;
@@ -76,6 +86,8 @@ export interface ClassItem {
   rating: number;
   image: string;
   status: 'Enrollment open' | 'Almost full' | 'Filling fast';
+  moderationStatus?: 'approved' | 'pending' | 'hidden' | 'rejected';
+  rejectionReason?: string;
   curriculum: ClassSession[];
 }
 
@@ -86,6 +98,7 @@ export interface BookingRequest {
   educatorAvatar: string;
   studentName: string;
   studentPhone: string;
+  studentEmail?: string;
   subject: string;
   goal: string;
   preferredDate: string;
@@ -94,6 +107,9 @@ export interface BookingRequest {
   format: string;
   budget: string;
   status: 'pending' | 'accepted' | 'declined';
+  bookingState?: 'pending' | 'accepted' | 'declined' | 'completed' | 'cancelled';
+  paymentStatus?: 'Escrowed' | 'Paid' | 'Pending' | 'Refunded';
+  sessionStatus?: 'Scheduled' | 'In Progress' | 'Completed' | 'Disputed';
   createdAt: string;
 }
 
@@ -111,13 +127,56 @@ export interface EnrollmentRecord {
   enrolledAt: string;
 }
 
+export interface PlatformUser {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  role: 'student' | 'educator' | 'admin';
+  status: 'active' | 'suspended';
+  joinedAt: string;
+  avatar: string;
+  location?: string;
+  totalBookings?: number;
+  suspendedReason?: string;
+}
+
+export interface ReportItem {
+  id: string;
+  reporterName: string;
+  reporterEmail: string;
+  reporterRole: 'student' | 'educator';
+  targetType: 'tutor' | 'gig' | 'user';
+  targetId: string;
+  targetName: string;
+  category: 'Inappropriate Conduct' | 'Misleading Content' | 'Payment Issue' | 'Spam / Plagiarism' | 'Quality Concern' | 'Other';
+  description: string;
+  status: 'pending' | 'resolved' | 'dismissed';
+  createdAt: string;
+  resolvedAt?: string;
+  resolutionNote?: string;
+}
+
+export interface AdminAuditLog {
+  id: string;
+  adminName: string;
+  action: string;
+  targetType: 'tutor' | 'gig' | 'user' | 'report' | 'booking';
+  targetId: string;
+  targetTitle: string;
+  details: string;
+  timestamp: string;
+}
+
 export interface UserSession {
   isAuthenticated: boolean;
-  role: 'student' | 'educator' | 'guest';
+  role: 'student' | 'educator' | 'admin' | 'guest';
   id: string;
   name: string;
   email: string;
   avatar: string;
+  status?: 'active' | 'suspended';
+  suspendedReason?: string;
   phone?: string;
   location?: string;
   educationLevel?: string;

@@ -3,6 +3,7 @@ import { useApp } from '../context/AppContext';
 import { VerifiedBadge } from '../components/VerifiedBadge';
 import { RatingStars } from '../components/RatingStars';
 import { BookingModal } from '../components/BookingModal';
+import { ReportModal } from '../components/ReportModal';
 import { ClassCard } from '../components/ClassCard';
 import {
   Calendar,
@@ -18,7 +19,8 @@ import {
   ArrowLeft,
   CheckCircle2,
   Share2,
-  Heart
+  Heart,
+  Flag
 } from 'lucide-react';
 
 interface MentorProfilePageProps {
@@ -29,6 +31,7 @@ export const MentorProfilePage: React.FC<MentorProfilePageProps> = ({ educatorId
   const { educators, classes, navigate } = useApp();
   const [activeTab, setActiveTab] = useState<'about' | 'classes' | 'experience' | 'portfolio' | 'reviews'>('about');
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isReportOpen, setIsReportOpen] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
 
   const educator = useMemo(() => {
@@ -84,13 +87,23 @@ export const MentorProfilePage: React.FC<MentorProfilePageProps> = ({ educatorId
             <span className="font-semibold text-slate-900 truncate">{educator.name}</span>
           </nav>
 
-          <button
-            onClick={handleShare}
-            className="text-xs text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-300 bg-white hover:bg-slate-50 transition cursor-pointer"
-          >
-            <Share2 className="w-3.5 h-3.5" />
-            <span>{copiedLink ? 'Link Copied!' : 'Share Profile'}</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsReportOpen(true)}
+              id="report-educator-btn"
+              className="text-xs text-rose-600 hover:text-rose-700 flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-rose-200 bg-rose-50/40 hover:bg-rose-50 transition cursor-pointer"
+            >
+              <Flag className="w-3.5 h-3.5" />
+              <span>Report</span>
+            </button>
+            <button
+              onClick={handleShare}
+              className="text-xs text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-300 bg-white hover:bg-slate-50 transition cursor-pointer"
+            >
+              <Share2 className="w-3.5 h-3.5" />
+              <span>{copiedLink ? 'Link Copied!' : 'Share Profile'}</span>
+            </button>
+          </div>
         </div>
 
         {/* 24. TOP HERO SECTION */}
@@ -503,6 +516,15 @@ export const MentorProfilePage: React.FC<MentorProfilePageProps> = ({ educatorId
         educator={educator}
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
+      />
+
+      {/* REPORT MODAL */}
+      <ReportModal
+        isOpen={isReportOpen}
+        onClose={() => setIsReportOpen(false)}
+        targetType="tutor"
+        targetId={educator.id}
+        targetName={educator.name}
       />
     </div>
   );

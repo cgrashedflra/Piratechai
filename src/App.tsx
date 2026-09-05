@@ -15,6 +15,7 @@ import { StudentDashboardPage } from './pages/StudentDashboardPage';
 import { EducatorDashboardPage } from './pages/EducatorDashboardPage';
 import { VideoClassroomPage } from './pages/VideoClassroomPage';
 import { HowItWorksPage, AboutPage, FAQPage } from './pages/StaticPages';
+import { AdminPage } from './pages/AdminPage';
 
 const MainRouter: React.FC = () => {
   const { currentPath, navigate } = useApp();
@@ -24,6 +25,10 @@ const MainRouter: React.FC = () => {
 
   // Determine which page to render
   const renderPage = () => {
+    if (path === '/admin' || path.startsWith('/admin')) {
+      return <AdminPage />;
+    }
+
     if (path === '/' || path === '') {
       return <HomePage />;
     }
@@ -97,12 +102,14 @@ const MainRouter: React.FC = () => {
   };
 
   const isClassroom = path.startsWith('/classroom/');
+  const isAdmin = path === '/admin' || path.startsWith('/admin');
+  const isDedicatedLayout = isClassroom || isAdmin;
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 selection:bg-indigo-500/20 selection:text-indigo-900">
-      {!isClassroom && <Navbar />}
+      {!isDedicatedLayout && <Navbar />}
       <main className="flex-1">{renderPage()}</main>
-      {!isClassroom && <Footer />}
+      {!isDedicatedLayout && <Footer />}
     </div>
   );
 };

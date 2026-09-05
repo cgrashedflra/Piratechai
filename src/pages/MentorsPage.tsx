@@ -93,6 +93,11 @@ export const MentorsPage: React.FC = () => {
   const filteredEducators = useMemo(() => {
     return educators
       .filter((edu) => {
+        // Exclude suspended or rejected tutors from public discovery
+        if (edu.verificationStatus === 'suspended' || edu.verificationStatus === 'rejected') {
+          return false;
+        }
+
         // Search term
         if (searchTerm.trim()) {
           const q = searchTerm.toLowerCase();

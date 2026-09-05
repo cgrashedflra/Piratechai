@@ -177,6 +177,16 @@ export const Footer: React.FC = () => {
                 </span>
               </li>
               <li>
+                <button
+                  id="footer-admin-portal-link"
+                  onClick={() => navigate('/admin')}
+                  className="hover:text-indigo-400 text-indigo-300 font-medium transition-colors cursor-pointer text-left flex items-center gap-1"
+                >
+                  <Shield className="w-3 h-3 text-indigo-400" />
+                  Admin Console
+                </button>
+              </li>
+              <li>
                 <span className="text-slate-500">Dhaka, Bangladesh</span>
               </li>
             </ul>

@@ -308,5 +308,95 @@ export const initialClasses: ClassItem[] = [
       { sessionNumber: 7, title: 'Data Sufficiency Mastery & Logical Puzzles', duration: '90 min', topic: 'Avoiding calculation traps and determining necessity.' },
       { sessionNumber: 8, title: 'Full-Length IBA Quantitative Diagnostic Exam', duration: '90 min', topic: 'Timed 30-question sprint with strategy and cut-off analysis.' }
     ]
+  },
+  {
+    id: 'class-ielts-mastery',
+    title: 'IELTS Academic 7.5+ Band Accelerator',
+    educatorId: 'sharmin-akter',
+    educatorName: 'Sharmin Akter',
+    educatorAvatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80',
+    educatorVerified: false,
+    subject: 'IELTS',
+    level: 'Exam Preparation',
+    description: 'Specialized 4-week cohort focusing on Task 2 Essay Writing and Speaking fluency drills with mock examiner interviews.',
+    outcomes: [
+      'Master high-scoring cohesive devices and academic vocabulary',
+      'Overcome hesitation and fillers in Part 2 cue cards',
+      'Weekly personalized audio feedback on recorded speaking tasks'
+    ],
+    sessions: 6,
+    duration: 90,
+    schedule: ['Tuesday & Friday · 8:00 PM'],
+    timeSlot: '8:00 PM - 9:30 PM',
+    startDate: 'October 25, 2026',
+    maxStudents: 15,
+    enrolledStudents: 3,
+    price: 3200,
+    rating: 5.0,
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
+    status: 'Enrollment open',
+    moderationStatus: 'pending',
+    curriculum: [
+      { sessionNumber: 1, title: 'Writing Task 2: Brainstorming & Thesis Formulation', duration: '90 min', topic: 'Structuring agree/disagree and problem-solution essays.' },
+      { sessionNumber: 2, title: 'Writing Task 1: Data Reports & Process Diagrams', duration: '90 min', topic: 'Overviews, groupings, and accurate trend descriptions.' },
+      { sessionNumber: 3, title: 'Speaking Fluency & Natural Idiomatic Phrasing', duration: '90 min', topic: 'Part 1 question answering frameworks without memorization.' }
+    ]
+  },
+  {
+    id: 'class-sat-digital',
+    title: 'SAT Digital Math Mastery & Secret Hacks',
+    educatorId: 'tutor-farhan',
+    educatorName: 'Farhan Tariq',
+    educatorAvatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80',
+    educatorVerified: false,
+    subject: 'SAT',
+    level: 'Exam Preparation',
+    description: 'Fast tricks for the Desmos graphing calculator and Digital SAT math shortcuts.',
+    outcomes: [
+      'Use Desmos to bypass quadratic equations in 10 seconds',
+      'Solve circle geometry questions by inspection'
+    ],
+    sessions: 4,
+    duration: 60,
+    schedule: ['Sunday · 5:00 PM'],
+    timeSlot: '5:00 PM - 6:00 PM',
+    startDate: 'November 01, 2026',
+    maxStudents: 10,
+    enrolledStudents: 2,
+    price: 1800,
+    rating: 3.8,
+    image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80',
+    status: 'Enrollment open',
+    moderationStatus: 'hidden',
+    rejectionReason: 'Hidden pending review of syllabus material claims reported by enrolled students (#rep-103).',
+    curriculum: [
+      { sessionNumber: 1, title: 'Desmos Regression & Root Finding', duration: '60 min', topic: 'Calculator input patterns.' }
+    ]
+  },
+  {
+    id: 'class-exam-leak',
+    title: 'HSC 2026 Guaranteed 100% Leak Mock Paper Drill',
+    educatorId: 'tutor-farhan',
+    educatorName: 'Farhan Tariq',
+    educatorAvatar: 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=400&q=80',
+    educatorVerified: false,
+    subject: 'Physics',
+    level: 'HSC',
+    description: 'Guaranteed leak questions for upcoming board exam. Secret leaked question bank review.',
+    outcomes: ['Direct leak questions solved'],
+    sessions: 2,
+    duration: 60,
+    schedule: ['Daily · 11:00 PM'],
+    timeSlot: '11:00 PM - 12:00 AM',
+    startDate: 'October 30, 2026',
+    maxStudents: 50,
+    enrolledStudents: 0,
+    price: 5000,
+    rating: 1.0,
+    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80',
+    status: 'Enrollment open',
+    moderationStatus: 'rejected',
+    rejectionReason: 'Severe policy violation: Promotes unauthorized exam leaks and academic dishonesty.',
+    curriculum: []
   }
 ];
