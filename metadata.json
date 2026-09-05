@@ -1,0 +1,6 @@
+{
+  "name": "Pirate Chai",
+  "description": "Direct-to-educator learning marketplace connecting students with skilled mentors and educators for personalized tutoring and structured batch classes.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
